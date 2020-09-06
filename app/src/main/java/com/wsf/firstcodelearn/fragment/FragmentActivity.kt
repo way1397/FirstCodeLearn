@@ -2,6 +2,7 @@ package com.wsf.firstcodelearn.fragment
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.wsf.firstcodelearn.R
 import kotlinx.android.synthetic.main.avtivity_fragment.*
 
