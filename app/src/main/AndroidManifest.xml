@@ -54,6 +54,12 @@
             android:label="my recyclerView"></activity>
         <activity android:name=".fragment.FragmentActivity"></activity>
         <activity android:name=".broadcast.BroadMain">
+
+        </activity>
+        <activity android:name=".filepersistence.FileMain">
+
+        </activity>
+        <activity android:name=".database.DatabaseMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
