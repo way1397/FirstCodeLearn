@@ -4,6 +4,7 @@
     package="com.wsf.firstcodelearn">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -60,6 +61,9 @@
 
         </activity>
         <activity android:name=".database.DatabaseMain">
+
+        </activity>
+        <activity android:name=".permission.PermissionActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
