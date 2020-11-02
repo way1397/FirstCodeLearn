@@ -2,6 +2,8 @@ package com.wsf.firstcodelearn.notification
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
@@ -10,6 +12,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.wsf.firstcodelearn.R
@@ -29,6 +32,22 @@ class CameraActivity : AppCompatActivity() {
             takePhoto()
         }
 
+        btn_open_album.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+//            intent.addCategory(Intent.CATEGORY_OPENABLE)
+//            // 指定只显示图片
+//            intent.type = "image/*"
+//            startActivityForResult(intent, fromAlbum)
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            val resoList=packageManager.queryIntentActivities(intent,PackageManager.MATCH_DEFAULT_ONLY);
+            if (resoList.size!=0){
+                startActivityForResult(intent,fromAlbum)
+            }else{
+                Toast.makeText(this,"cant find",Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
     private fun takePhoto() {
@@ -48,18 +67,6 @@ class CameraActivity : AppCompatActivity() {
         startActivityForResult(intent, takePhoto)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            takePhoto -> {
-                if (resultCode == Activity.RESULT_OK) {
-                    val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
-                    imageView.setImageBitmap(rotateIfRequire(bitmap))
-                }
-            }
-        }
-    }
-
     private fun rotateIfRequire(bitmap: Bitmap): Bitmap {
         val exif = ExifInterface(outputImage.path)
         val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
@@ -77,5 +84,30 @@ class CameraActivity : AppCompatActivity() {
         val rotateBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bitmap.recycle()
         return rotateBitmap
+    }
+
+    private fun getBitmapForUri(uri: Uri) = contentResolver
+            .openFileDescriptor(uri, "r")?.use {
+                BitmapFactory.decodeFileDescriptor(it.fileDescriptor)
+            }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            takePhoto -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
+                    imageView.setImageBitmap(rotateIfRequire(bitmap))
+                }
+            }
+            fromAlbum -> {
+                if (resultCode == Activity.RESULT_OK && data != null) {
+                    data.data?.let { uri ->
+                        val bitmap = getBitmapForUri(uri)
+                        imageView.setImageBitmap(bitmap)
+                    }
+                }
+            }
+        }
     }
 }

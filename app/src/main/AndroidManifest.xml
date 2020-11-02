@@ -71,7 +71,8 @@
         <activity android:name=".notification.NotificationMain">
 
         </activity>
-        <activity android:name=".notification.CameraActivity">
+        <activity android:name=".notification.CameraActivity"
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
