@@ -36,5 +36,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_pause" />
 
+    <Button
+        android:id="@+id/btn_video_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_stop" />
+
+    <Button
+        android:id="@+id/btn_video_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="pause"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_video_play"
+        app:layout_constraintStart_toEndOf="@+id/btn_video_play" />
+
+    <Button
+        android:id="@+id/btn_video_replay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="replay"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_video_pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_video_pause" />
+
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_video_replay" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

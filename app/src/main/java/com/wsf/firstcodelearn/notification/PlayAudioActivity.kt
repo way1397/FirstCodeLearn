@@ -1,9 +1,12 @@
 package com.wsf.firstcodelearn.notification
 
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import com.wsf.firstcodelearn.R
+import com.wsf.firstcodelearn.kotlinlearn.beginsWith
 import kotlinx.android.synthetic.main.activity_play_audio.*
 
 class PlayAudioActivity : AppCompatActivity() {
@@ -14,6 +17,8 @@ class PlayAudioActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_audio)
         initMediaPlayer()
+        val uri = Uri.parse("android.resource://$packageName/${R.raw.video}")
+        video_view.setVideoURI(uri)
         btn_play.setOnClickListener {
             if (!mediaPlayer.isPlaying) {
                 mediaPlayer.start()
@@ -30,6 +35,24 @@ class PlayAudioActivity : AppCompatActivity() {
                 initMediaPlayer()
             }
         }
+
+        btn_video_play.setOnClickListener {
+            if (!video_view.isPlaying) {
+                video_view.start()
+            }
+        }
+
+        btn_video_pause.setOnClickListener {
+            if (video_view.isPlaying) {
+                video_view.pause()
+            }
+        }
+
+        btn_video_replay.setOnClickListener {
+            if (video_view.isPlaying) {
+                video_view.resume()
+            }
+        }
     }
 
     private fun initMediaPlayer() {
@@ -43,5 +66,6 @@ class PlayAudioActivity : AppCompatActivity() {
         super.onDestroy()
         mediaPlayer.stop()
         mediaPlayer.release()
+        video_view.suspend()
     }
 }
