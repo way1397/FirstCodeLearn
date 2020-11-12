@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -71,17 +72,20 @@
         <activity android:name=".notification.NotificationMain">
 
         </activity>
-        <activity android:name=".notification.CameraActivity"
-            android:enabled="true">
+        <activity
+            android:name=".notification.CameraActivity"
+            android:enabled="true"></activity>
+        <activity android:name=".notification.PlayAudioActivity">
 
         </activity>
-        <activity android:name=".notification.PlayAudioActivity" >
+        <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".service.ServiceActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -92,6 +96,16 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".service.MyIntentService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
