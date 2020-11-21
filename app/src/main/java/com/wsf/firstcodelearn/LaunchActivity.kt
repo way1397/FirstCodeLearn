@@ -10,6 +10,7 @@ class LaunchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
+        setSupportActionBar(toolbar)
         btn_service.setOnClickListener {
             ServiceActivity.starter(this)
         }
