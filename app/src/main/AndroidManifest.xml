@@ -87,6 +87,10 @@
         </activity>
         <activity android:name=".service.ServiceActivity" />
         <activity android:name=".myjetpack.JetPackMainActivity" />
+        <activity android:name="com.wsf.customview.MyCustomView">
+
+        </activity>
+        <activity android:name="com.wsf.customview.ViewTestActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

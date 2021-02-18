@@ -1,8 +1,5 @@
 package com.wsf.firstcodelearn.kotlinlearn
 
-import java.lang.Exception
-import java.lang.IllegalArgumentException
-
 sealed class Result
 class Success(val msg: String) : Result()
 class Failure(val error: Exception) : Result()

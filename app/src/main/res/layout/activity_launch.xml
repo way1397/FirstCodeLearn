@@ -9,12 +9,12 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AppCompat.Light"/>
+        app:popupTheme="@style/Theme.AppCompat.Light" />
 
     <Button
         android:id="@+id/btn_service"
@@ -35,4 +35,32 @@
         android:text="jetpack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_service" />
+
+    <Button
+        android:id="@+id/testView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_jetpack"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <com.wsf.customview.KotlinEdit
+        android:layout_marginLeft="16dp"
+        android:id="@+id/my_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="自定义TextvView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/testView" />
+
+    <EditText
+        android:layout_marginLeft="16dp"
+        android:hint="系统text"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/my_edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
