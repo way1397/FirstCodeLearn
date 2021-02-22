@@ -91,6 +91,8 @@
 
         </activity>
         <activity android:name="com.wsf.customview.ViewTestActivity" />
+        <activity android:name=".webviewtest.MyWebViewActivity" />
+        <activity android:name=".webviewtest.ProductDetailActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

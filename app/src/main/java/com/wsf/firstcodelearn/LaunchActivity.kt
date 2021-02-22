@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.wsf.customview.ViewTestActivity
-import com.wsf.firstcodelearn.fragment.FragmentActivity
 import com.wsf.firstcodelearn.myjetpack.JetPackMainActivity
 import com.wsf.firstcodelearn.service.ServiceActivity
+import com.wsf.firstcodelearn.webviewtest.ProductDetailActivity
 
 class LaunchActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -32,7 +31,8 @@ class LaunchActivity : AppCompatActivity() {
             JetPackMainActivity.starter(this)
         }
         testView.setOnClickListener {
-            ViewTestActivity.start(this)
+//            MyWebViewActivity.start(this)
+            ProductDetailActivity.start(this)
         }
 //        btn_jetpack.setOnClickListener {
 //            PermissionW.request(this, Manifest.permission.CALL_PHONE) { allGranted, deniedList ->

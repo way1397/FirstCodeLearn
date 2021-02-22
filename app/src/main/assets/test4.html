@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="img" alt="">
+    <canvas id="canvas"></canvas>
+</body>
+
+
+<style>
+    #img {
+        display: none;
+        width: 100%;
+        height: auto;
+    }
+    *{
+        margin: 0;
+    }
+</style>
+
+<script>
+    let src="";
+    function showWebView(param){
+    window.onerror = (msg) => {
+            alert(msg);
+        }
+	let img = document.getElementById("img");
+	src=param.content;
+    img.src = src;
+    let canvas = document.getElementById("canvas").getContext("2d")
+    let h = 3147 / 1125 * window.innerWidth;
+    document.getElementById("canvas").width = window.innerWidth;
+    document.getElementById("canvas").height = h;
+    img.onload = () => {
+        canvas.drawImage(img, 0, 0, window.innerWidth, h);
+    }
+}
+
+
+
+</script>
+
+</html>
