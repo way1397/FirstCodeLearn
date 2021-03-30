@@ -32,7 +32,9 @@ class LaunchActivity : AppCompatActivity() {
         }
         testView.setOnClickListener {
 //            MyWebViewActivity.start(this)
-            ProductDetailActivity.start(this)
+//            ProductDetailActivity.start(this)
+            SpreadActivity.start(this)
+
         }
 //        btn_jetpack.setOnClickListener {
 //            PermissionW.request(this, Manifest.permission.CALL_PHONE) { allGranted, deniedList ->

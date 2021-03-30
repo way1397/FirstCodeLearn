@@ -58,8 +58,6 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void switchGoodDetailTab(String tabStr) {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
         switch (tabStr) {
             case "商品详情":
                 changeToDetail();
