@@ -47,6 +47,15 @@
         tools:layout_editor_absoluteX="15dp"
         tools:layout_editor_absoluteY="206dp" />
 
+    <Button
+        android:id="@+id/htmlText"
+        android:text="html富文本"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/testView"
+        android:layout_margin="16dp"/>
+
     <!--    <com.wsf.customview.KotlinEdit-->
     <!--        android:id="@+id/my_edit"-->
     <!--        android:layout_width="wrap_content"-->
