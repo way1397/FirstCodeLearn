@@ -1,26 +1,69 @@
 package com.wsf.firstcodelearn.kotlinlearn
 
+import com.alibaba.fastjson.JSON
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.max
+import kotlin.time.ExperimentalTime
+import kotlin.time.milliseconds
+import kotlin.time.seconds
 
+@ExperimentalTime
 fun main() {
-    // 给函数的第二个参数赋值，这样就可以不用按照java那样按照顺序传参
-//    printParams(str = "hhh")
-//    var studen= Student(sno = "第一个参数", age = 2)
-    val list = listOf("apple", "banana", "orange", "grape")
-    val result2=java.lang.StringBuilder().run {
-        append("start eat\n")
-        for (fruit in list) {
-            append(fruit).append("\n")
-        }
-        append("finish")
-        toString()
+    //1620788500457
+    val timeStr = "10:10:10"
+    val sf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    val date = Date(1620788500457)
+    val formateString = sf.format(date)
+//    val time = (System.currentTimeMillis() - 1620788500457).milliseconds.inSeconds
+    println("" + formateString)
+
+    val Str = "2021-05-12 11:01:40"
+    val date2 = sf.parse(Str)
+    val sf2 = SimpleDateFormat("HH:mm:ss")
+    val strOnlyHours = sf2.format(date2)
+    println("" + strOnlyHours)
+
+
+    val time1 = "00:00:00"
+    val time2 = "01:00:00"
+
+    val date1 = sf2.parse(time1)
+    val date3 = sf2.parse(time2)
+    val diff=date3.time - date1.time
+    print("结束时间：${date3.time}，开始时间${date1.time},时间相差${diff}")
+}
+
+
+fun letterToNumber(letter: String): Int {
+    val length: Int = letter.length
+    var num = 0
+    var number = 0
+    for (i in 0 until length) {
+        val ch: Char = letter[length - i - 1]
+        num = (ch - 'A' + 1)
+        num *= Math.pow(26.0, i.toDouble()).toInt()
+        number += num
     }
-    println(result2)
+    return number
 }
 
 // 给函数的第二个参数设置了默认值，这样调用的时候就可以不用给第二个参数传值
 fun printParams(num: Int = 5, str: String = "hello") {
     println("num is $num,$str")
+}
+
+fun cost(block: () -> Unit) {
+    val start = System.currentTimeMillis()
+    block()
+    println(System.currentTimeMillis() - start)
+}
+
+inline fun inLineCost(block: () -> Unit) {
+    val start = System.currentTimeMillis()
+    block()
+    println(System.currentTimeMillis() - start)
 }
 
 fun study(student: Student?) {

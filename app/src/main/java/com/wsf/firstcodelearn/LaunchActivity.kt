@@ -6,15 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.wsf.firstcodelearn.htmltext.HtmlActivity
 import com.wsf.firstcodelearn.myjetpack.JetPackMainActivity
 import com.wsf.firstcodelearn.service.ServiceActivity
-import com.wsf.firstcodelearn.webviewtest.ProductDetailActivity
 
 class LaunchActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var btn_service: Button
     private lateinit var btn_jetpack: Button
     private lateinit var testView: Button
+    private lateinit var htmlText: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class LaunchActivity : AppCompatActivity() {
         btn_service = findViewById(R.id.btn_service)
         btn_jetpack = findViewById(R.id.btn_jetpack)
         testView = findViewById(R.id.testView)
+        htmlText = findViewById(R.id.htmlText)
         setSupportActionBar(toolbar)
         btn_service.setOnClickListener {
             ServiceActivity.starter(this)
@@ -35,6 +37,10 @@ class LaunchActivity : AppCompatActivity() {
 //            ProductDetailActivity.start(this)
             SpreadActivity.start(this)
 
+        }
+
+        htmlText.setOnClickListener {
+            HtmlActivity.start(this)
         }
 //        btn_jetpack.setOnClickListener {
 //            PermissionW.request(this, Manifest.permission.CALL_PHONE) { allGranted, deniedList ->

@@ -1,10 +1,34 @@
 package com.wsf.firstcodelearn;
 
+import android.net.Uri;
+import android.util.Log;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+
 class LeetCodeClass {
 
     public static void main(String[] args) {
 //        System.out.print(romanToInt("lll"));//1994
+
+        String url="http://192.168.101.201:9999/dfwl/阿里巴巴Android面试题集（答案解析）.pdf";
+        try {
+            String result= Uri.encode(url, "-![.:/,%?&=]");
+            Log.e("test", "main: "+result );
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+            e.printStackTrace();
+        }
+        List<String>a =new ArrayList<>();
+        a.clear();
+
     }
+
+
+
+
 
     /**
      * pre=m1000
